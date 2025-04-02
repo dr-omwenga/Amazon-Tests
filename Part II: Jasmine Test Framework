@@ -1,0 +1,21 @@
+import {formatCurrency} from "../../scripts/utils/money.js";
+
+// jasmine function to create a test suite
+ describe('test suite: formartCurrency', () => {
+  it('converts cents into dollars', () => {
+    expect(formatCurrency(2095)).toEqual('20.95');
+  });
+
+  it('works with zero', () => {
+    expect(formatCurrency(0)).toEqual('0.00');
+  });
+
+  it('rounds up 0.5 to the nearest cent', () =>{
+    expect(formatCurrency(2000.5)).toEqual('20.01')
+  });
+
+  it('rounds 0.4 to the nearest cent', () => {
+    expect(formatCurrency(2000.4)).toEqual('20.00')
+  });
+
+ });
